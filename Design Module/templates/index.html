@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<head>
+
+	<title>Kickstart Server Configuration Tool</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	
+	<style>
+			#mysave{
+						top:580px;
+						left:1200px;
+						position:fixed; 
+						z-index:100000;		
+			}
+			#preview{
+						top:580px;
+						left:1090px;
+						position:fixed; 
+						z-index:100000;	
+			}
+			#dev-wrapper{
+					position:fixed;
+			}
+			#myslide{
+						top:-1px;
+						left:290px;
+						position:fixed; 
+						z-index:100000;			
+			}
+			#dev-fix{
+					position:fixed; 
+					top:0px; 
+					left:260px;
+					z-index:100000;
+					background-color:white;
+			}
+			#firsttitle{
+					color:#FFFFFF;
+			}
+			#maintitle{
+					padding: 10px;
+			}
+			#firstbutton{
+					    border-radius: 45px 0px 0px 45px;
+					    width: 150px;
+					    padding: 10px;
+					    top:15px;
+					    background-color: #3C3C3C;
+			}
+			#secondbutton{
+						width:	200px;
+						padding: 10px;
+					    top:15px;
+					    background-color: #3C3C3C;
+			}
+			#thirdbutton{
+						width:	200px;
+						padding: 10px;
+					    top:15px;
+					    background-color: #000000;
+  					    font-weight: bold;
+			}
+			#forthbutton{
+						width:	200px;
+						padding: 10px;
+					    top:15px;
+					    background-color: #3C3C3C;
+			}
+			#fifthbutton{
+				        border-radius: 0px 45px 45px 0px;	
+				        width: 150px;
+				        padding: 10px;
+				   		top: 15px;
+					    background-color: #3C3C3C;
+			}		
+
+			#sidebar-wrapper{
+						width:	260px;
+			}
+			#filebutton{
+						left:300px;
+			}
+
+	</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" id="firsttitle">Kickstart Configuration Tool</a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#menu1">Basic Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu2">Installtion Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu3">Boot-Loader Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu4">Partition Information</a>
+                </li>
+                <li>
+                    <a href="#menu5">Network Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu6">Authentication Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu7">Firewall Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu8">Display Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu9">Package Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu10">Pre-Installtion Configuration</a>
+                </li>
+                <li>
+                    <a href="#menu11">Post-Installtion Configuration</a>
+                </li>
+            </ul>
+		</div>
+    </div>
+	
+	<nav>
+		<div id="dev-fix">
+			<div class="container" align="center">
+			  <div class="btn-group">	
+				<button id="firstbutton" type="button" class="btn btn-primary">Help</button>
+				<button id="secondbutton" type="button" class="btn btn-primary">Customise</button>
+				<button id="thirdbutton" type="button" class="btn btn-primary">Configuration</button>
+				<button id="forthbutton" type="button" class="btn btn-primary">Setup</button>
+				<button id="fifthbutton" type="button" class="btn btn-primary">Credits 	&#10026;</button>
+			  </div>
+			</div>
+			<h3 id="maintitle" align="center">Please select your choice for configuration</h3>
+		</div>
+	</nav>
+	
+	<div id="myslide">
+		<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><<</a>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	
+
+	
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+	
+    </script>
+	
+	
+	
+	
+		<div id="menu3">
+		<br/><br/><br/><br/><br/><br/>
+		<h3 align="center">Bottloader Configuration</h3>
+		<hr/>
+		<form class="form-horizontal" action="/" method="POST">
+			<fieldset>
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="pass">Root Password</label>  
+				  <div class="col-md-5">
+				  <input id="pass" name="pass" type="text" placeholder="" class="form-control input-md" required="">  
+				  </div>
+
+				</div>
+
+		<!-- #do not close this, this define menu align start for menu2 @yvt -->		
+				<div id="menu2"></div>
+		<!-- #do not close this, this define menu align end for menu2 @yvt -->		
+
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="rpass">Conform Password</label>  
+				  <div class="col-md-5">
+				  <input id="rpass" name="rpass" type="text" placeholder="" class="form-control input-md" required="">
+				  </div>
+				</div>
+
+			</fieldset>
+		</form>
+		<hr/>
+	</div>
+
+	<div>
+		<h3 align="center">Installtion Configuration</h3>
+		<hr/>
+		<form class="form-horizontal" action="/" method="POST">
+			<fieldset>
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="pass">Root Password</label>  
+				  <div class="col-md-5">
+				  <input id="pass" name="pass" type="text" placeholder="" class="form-control input-md" required="">  
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="rpass">Conform Password</label>  
+				  <div class="col-md-5">
+				  <input id="rpass" name="rpass" type="text" placeholder="" class="form-control input-md" required="">
+				  </div>
+				</div>
+			
+				<div class="form-group">
+				  <label class="col-md-4 control-label"></label>
+				  <div class="col-md-4">
+					<input type="submit" class="btn btn-default" value="Save File"/>
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+		<hr/>
+	</div>
+
+	
+	<div>
+		<h3 align="center">Installtion Configuration</h3>
+		<hr/>
+		<form class="form-horizontal" action="/" method="POST">
+			<fieldset>
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="pass">Root Password</label>  
+				  <div class="col-md-5">
+				  <input id="pass" name="pass" type="text" placeholder="" class="form-control input-md" required="">  
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="rpass">Conform Password</label>  
+				  <div class="col-md-5">
+				  <input id="rpass" name="rpass" type="text" placeholder="" class="form-control input-md" required="">
+				  </div>
+				</div>
+			
+				<div class="form-group">
+				  <label class="col-md-4 control-label"></label>
+				  <div class="col-md-4">
+					<input type="submit" class="btn btn-default" value="Save File"/>
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+		<hr/>
+	</div>
+	
+		<div>
+		<h3 align="center">Installtion Configuration</h3>
+		<hr/>
+		<form class="form-horizontal" action="/" method="POST">
+			<fieldset>
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="pass">Root Password</label>  
+				  <div class="col-md-5">
+				  <input id="pass" name="pass" type="text" placeholder="" class="form-control input-md" required="">  
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="rpass">Conform Password</label>  
+				  <div class="col-md-5">
+				  <input id="rpass" name="rpass" type="text" placeholder="" class="form-control input-md" required="">
+				  </div>
+				</div>
+			
+				<div class="form-group">
+				  <label class="col-md-4 control-label"></label>
+				  <div class="col-md-4">
+					<input type="submit" class="btn btn-default" value="Save File"/>
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+		<hr/>
+	</div>
+	
+		<div>
+		<h3 align="center">Installtion Configuration</h3>
+		<hr/>
+		<form class="form-horizontal" action="/" method="POST">
+			<fieldset>
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="pass">Root Password</label>  
+				  <div class="col-md-5">
+				  <input id="pass" name="pass" type="text" placeholder="" class="form-control input-md" required="">  
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="col-md-4 control-label" name="rpass">Conform Password</label>  
+				  <div class="col-md-5">
+				  <input id="rpass" name="rpass" type="text" placeholder="" class="form-control input-md" required="">
+				  </div>
+				</div>
+			
+				<div class="form-group">
+				  <label class="col-md-4 control-label"></label>
+				  <div class="col-md-4">
+					<input type="submit" class="btn btn-default" value="Save File"/>
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+		<hr/>
+	</div>
+	
+	<!-- Preview and Save Button Starts -->
+	
+	<div id="mysave">
+		<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<input type="submit" align="left" class="btn btn-default" value="Save File"/>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div id="preview">
+		<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<input type="submit" align="left" class="btn btn-default" value="Preview File"/>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+	<!-- Preview and Save Button Ends -->
+
+	
+</body>
+</html>
