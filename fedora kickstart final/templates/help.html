@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kickstart Server Configuration Tool</title>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-3.1.0.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/title.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/simple-sidebar.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/uppernavbar.css')}}">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse  navbar-static-top">
+          <div class="container">
+            <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" id="ll">
+                <li><a id="menu-toggle" href="#"><img src="{{url_for('static',filename='img/menu.png')}}" width="20" height="20"></a></li>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kickstart Configuration Tool</a>
+                </div>
+                <li><a href="/">Configuration</a></li>
+                <li><a href="Setup.html">Setup</a></li>
+                <li  class="active"><a href="help.html">Help?</a></li>
+
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+             });
+        </script>
+
+    <div id="wrapper" style="padding-top: 50px">
+            <div id="sidebar-wrapper" >
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#menu1">Basic Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu2">Installtion Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu3">Boot-Loader Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu4">Partition Information</a>
+                    </li>
+                    <li>
+                        <a href="#menu5">Network Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu6">Authentication Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu7">Firewall Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu8">Display Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu9">Package Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu10">Pre-Installtion Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#menu11">Post-Installtion Configuration</a>
+                    </li>
+                </ul>
+            </div>
+            <br><br><br>
+
+                        <ul style="list-style-type:disc">
+                        <li>Step1: Preview button is to preview file before save.</li>
+                        <li>Step2: save button is to save file with given name.</li>
+                        <li>Step3: Download button is to download saved file</li>
+                        </ul>
+        <form class="form-horizontal" method="POST">
+                <!-- #1 Menu -->
+                <div id="menu1" ><br/><br/>
+                    <div style="color: red;"><hr/>
+                    <h3 align="center"><b>Basic Configuration</b></h3><hr/></div>
+                    <fieldset>
+                      <ul style="list-style-type:disc">
+                        <li>Users have to choose default languagedefault language to be used after installation from the default language menu.</li>
+                        <li>Select the system keyboard type from the Keyboard menu.</li>
+                        <li>From time zone use UTC clock, choose time zone to use on system.</li>
+                        <li>Then entered desired <b>root password</b> in two given paasword field. To save password in encrypted mode, select encrypt password so that plain text is written in file as encrypted format.Do not type an already encrypted password and select to encrypt it. Because a kickstart file is a plain text file that can be easily read, it is recommended that anencrypted password be used. </li>
+                        <li>Choosing Target Architecture specifies which specific hardware architecturedistribution is used during installation.</li>
+                        <li>Kickstart installations are performed in graphical mode by default. To override this defaultand use text mode instead, select the Perform installation in text mode option.</li>
+                        </ul></fieldset>
+                </div>
+                <!-- #2 Menu -->
+                <div id="menu2"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Installtion Configuration</b></h3>
+                    <hr/> </div>
+                    <fieldset><div class="form-group" style="padding-left: 25px" >
+                        <p><ul style=&quot;list-style-type:disc&quot;><br />
+ <li>The Installation Method screen allows user to choose whether to perform a new installation or an upgrade.</li><br />
+ <li>If user choose upgrade, the Partition Information and Package Selection options are disabled and allows to configure- Basic configuration, Boot Loader Options, Network Configuration, Pre and Post installation script. </li><br />
+ <li>New installation allow all configuration which disabled in upgrade.</li><br />
+ <li>Both new installation and upgrade allows installation source to choose type of installation and upgrade from following options:</li></ul><br />
+ <ul style=&quot;list-style-type:disc&quot;><br />
+ <li> DVD - Choose this option to install or upgrade from the Red Hat Enterprise Linux DVD.</li><br />
+ <li> NFS - Choose this option to install or upgrade from an NFS shared directory. It has two field NFS server and NFS directory, NFS server contain a fully-qualified domain name or IP address. NFS directory contain the name of the NFS directory that contains the variant directory of the installation tree.</li></p>
+
+<p> <li> FTP - Choose this option to install or upgrade from an FTP server. The FTP server field contain fully-qualified domain name or IP address. For the FTP directory, enter the name of the FTP directory that contains the variant directory.<li></p>
+
+<p> <li>HTTP - Choose this option to install or upgrade from an HTTP server. HTTP server field contain the fully-qualified domain name or IP address. HTTP directory contain the name of the HTTP directory that contains the variant directory.</li></p>
+
+<p>
+ <li> Hard Drive - Choose this option to install or upgrade from a hard drive. Hard drive installations require the use of ISO images. Enter the hard drive partition that contains the ISO images (for example, /dev/hda1) in the Hard Drive Partition field.</li><br />
+ </ul></p></div></fieldset>
+                </div>
+                <!-- #3 Menu -->
+                <div id="menu3"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Boot-Loader Configuration</b></h3>
+                    <hr/></div>
+                    <fieldset><div class="form-group" style="padding-left: 30px" >
+                        <p>&#61623; These Boot Loader options provide three feature:<br />
+I. Do not install boot loader.<br />
+II. Install new boot loader.<br />
+III. Upgrade existing boot loader.<br />
+&#61623; A program that loads an operating system when a computer is turned on. These Configuration available for target architecture x86 / x86_64 and disabled for Intel and IBM target architecture.<br />
+ &#61623; GRUB is the default boot loader for Red Hat Enterprise Linux on x86 / x86_64 architectures. If user do not want to install a boot loader select do not install a boot loader. Which indicate that user have another way to boot their system, such as a third-party boot loader.<br />
+&#61623; If user choose to install new boot loader then user can either install boot loader on Master Boot Record (MBR) or on the first sector of the /boot partition.<br />
+&#61623; To pass any special parameters to the kernel to be used when the system boots, enter them in the Kernel parameters text field. For example, if user have an IDE CD-ROM Writer, user can tell the kernel to use the SCSI emulation driver that must be loaded before using cdrecord by configuring hdd=ide-scsi as a kernel parameter (where hdd is the CD-ROM device).<br />
+&#61623; During installing boot loader to increases security user can configure GRUB password. These also allow to store password in encrypted format. If the encryption option is selected, when the file is saved, the plain text password that user typed is encrypted and written to the kickstart file. If the password user typed was already encrypted, uncheck the encryption option.<br />
+&#61623; The upgrade existing boot loader is used for upgrading an existing installation in installation method to upgrade the existing boot loader configuration, while preserving the old entries.<br />
+</p></div></fieldset>
+                </div>
+                <!-- #4 Menu -->
+                <div id="menu4"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Partition Information</b></h3>
+                    <hr/></div>
+                    <fieldset><div class="form-group" style="padding-left: 25px" >
+                       <p>It contain 4 fields which are:<br />
+i. Master Boot Records.<br />
+It allow user to configure clear or not master boot records.<br />
+ii. Partition.<br />
+It allow user to remove all existing partitions, remove all existing Linux partitions, or preserve existing partitions. Preserve existing partition hide label feature.<br />
+ iii. Label.<br />
+To initialize the disk label to the default for the architecture of the system (for example, msdos for x86), select Initialize the disk label if user are installing on a brand new hard drive.<br />
+iv. Layout.<br />
+It allow user to create new partition and create software RAID partition.<br />
+a) Create partition:<br />
+It allow user to create new partition by selecting mount point like /, /boot, /home, /var, /temp, /usr and filesystem of type ext2, ext3, ext4, swap, vfat, xfs. User can configure to make partition on specific drive or existing partition. User configure size in MB or fill all existing space on disk.<br />
+b) Software RAID:<br />
+It allow user to combine several disk into larger RAID device. The RAID device can be configured to provide additional speed and reliability compared to using an individual drive. Create more than one RAID partition then create RAID device by configuring mount point, filesystem type, RAID device name and RAID member.<br />
+</p></div></fieldset>
+                </div>
+                <!-- #5 Menu -->
+                <div id="menu5"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Network Configuration</b></h3>
+                    <hr/> </div>
+                    <fieldset><div class="form-group" style="padding-left: 25px" >
+                       <p>1 If the system to be installed via kickstart does not have an Ethernet card, do not configure one on the Network Configuration page.<br />
+2 Networking is only required if user choose a networking-based installation method (NFS, FTP, or HTTP). Networking can always be configured after installation with the Network Administration Tool (system-config-network).<br />
+3 For each Ethernet card on the system, user can add Network Device and configure the network device and network type for the device. Select eth0 to configure the first Ethernet card, eth1 for the second Ethernet card, and so on.</p>
+                    </div></fieldset>
+               </div>
+                <!-- #6 Menu -->
+                <div id="menu6"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Authentication Configuration</b></h3>
+                    <hr/></div>
+                    <fieldset>
+
+                    </fieldset>
+                </div>
+                <!-- #7 Menu -->
+                <div id="menu7"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Firewall Configuration</b></h3>
+                    <hr/></div>
+                    <fieldset><div class="form-group" style="padding-left: 25px" >
+ <p><ul><li>The Firewall Configuration allows user to configure firewall settings for the installed system.</li><br />
+<li> If firewall is disabled then system allows complete access to any active services and ports. No connections to the system are refused or denied.</li><br />
+ <li>If firewall configuration is enabled then system reject incoming connection are not in response to outbound request. User also allow only specific services through firewall.</li><br />
+<li> User allow trusted services such as HTTP, FTP, SSH, Telnet, SMTP. If a service is selected in the trusted services list, connections for the service are accepted and processed by the system.</li><br />
+<li> These configuration also allow additional ports pass through firewall by writing ports directly in text field. Use following format in text field as &ldquo;port:protocol&rdquo;. For example, IMAP allow through firewall by specifying imap: protocol.</li><br />
+<li> These allow user to set selinux policy as enforcing, permissive or disabled mode. Enforcing check context then allow service it if possible. Permissive only check context and allow service even if not possible. Disabled not check context and allow service.</li><br />
+</ul></p></div</fieldset>
+                </div>
+                <!-- #8 Menu -->
+                <div id="menu8"><br/><br/>
+                <div style="color:  red;"><hr/>
+                <h3 align="center"><b>Display Configuration</b></h3><hr/>
+                </div>
+                <fieldset>
+
+                </fieldset>
+                </div>
+                <!-- #9 Menu -->
+                <div id="menu9"><br><br>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Package Configuration</b></h3>
+                    <hr/> </div>
+                    <fieldset>
+
+                    </fieldset>
+                </div>
+                <!-- #10 Menu -->
+                <div id="menu10"><br/><br/>
+                    <div style="color:  red;">
+                        <hr/>
+                        <h3 align="center"><b>Pre-Installtion Configuration</b></h3>
+                        <hr/>
+                    </div>
+                    <fieldset><div class="form-group" style="padding-left: 25px" >
+<p><ul><li>User can add commands to run on the system immediately after the Kickstart file has been parsed and before the installation begins. </li>
+   <li> If user have configured the network in the Kickstart file, the network is enabled before this section is processed. </li>
+   <li> To include a pre installation script pass script to this field.</li><br /></ul>
+</p>            </div> </fieldset>
+                </div>
+                <!-- #11 Menu -->
+                <div id="menu11"><br/><br/>
+                    <div style="color:  red;"><hr/>
+                    <h3 align="center"><b>Post-Installtion Configuration</b></h3>
+                    <hr/></div>
+                    <fieldset><div class="form-group" style="padding-left: 25px" >
+<p><ul><li>You can also add commands to execute on the system after the installation is completed. </li>
+    <li>  If the network is properly configured in the Kickstart file, the network is enabled, and the script can include commands to access resources on the network.</li><br /></ul>
+</p>                 </div>  </fieldset>
+                </div>
+        </form><br><br><br>
+    </div>
+</body>
+</html>
+

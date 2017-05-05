@@ -1,0 +1,42 @@
+.notifyjs-notify-base {
+	position: relative;
+	z-index: 9999999;
+    min-height: 52px;
+    color:#444;
+}
+
+    .notifyjs-notify-base .image {
+        display: table;
+        position: absolute;
+		z-index: 9999999;
+        height: auto;
+        width: auto;
+        left: 25px;
+        top: 50%;
+
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .notifyjs-notify-base .text-wrapper {
+        display: inline-block;
+        vertical-align: bottom;
+        text-align: left;
+        margin: 10px 10px 10px 52px;
+        clear: both;
+        font-family: 'Segoe UI';
+    }
+
+    .notifyjs-notify-base .title {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .notifyjs-notify-base .text {
+        font-size: 12px;
+        font-weight: normal;
+        vertical-align: middle;
+    }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kickstart Server Configuration Tool</title>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-3.1.0.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/title.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/simple-sidebar.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/uppernavbar.css')}}">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse  navbar-static-top">
+          <div class="container">
+            <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" id="ll">
+                <li><a id="menu-toggle" href="#"><img src="{{url_for('static',filename='img/menu.png')}}" width="20" height="20"></a></li>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kickstart Configuration Tool</a>
+                </div>
+                <li><a href="/">Configuration</a></li>
+                 <!-- <li><a href="Customise.html">Customization</a></li>-->
+                <li class="active"><a href="Setup.html">Setup</a></li>
+                <li ><a href="help.html">Help?</a></li>
+               <!--<li><a href="Credits.html">Credits&#10026;</a></li>-->
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+             });
+        </script>
+
+    <div id="wrapper" style="padding-top: 50px">
+
+            <div id="sidebar-wrapper" >
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#menu1">FTP Setup</a>
+                    </li>
+                    <li>
+                        <a href="#menu2">HTTP Setup</a>
+                    </li>
+                   <!-- <li>
+                        <a href="#menu3">NFS Setup</a>
+                    </li>  -->
+                </ul>
+            </div>
+
+
+        <div class="form-horizontal" method="POST">
+            <form method="POST">
+                <!-- #1 Menu -->
+                <div id="menu1"><br/><br/><br/>
+                    <div style="color: red;"><hr/>
+                    <h3 align="center">FTP Setup</h3><hr/></div>
+                    <div style="padding-left: 20px">
+                    <fieldset>
+                    <div align="center">
+                        <p name="status">FTP start button is used to create ftp server with folder /var/ftp <br>
+                            Enter your file filename to upload on server.<br>
+                            <b>File URL example: ftp://192.168.56.1/pub/cfg_files/ks.cfg</b><br>
+                            </p>
+
+                                <input type="submit" name="submit" class="btn" value="FTP Start">                   <br>							<br><br>
+                                <input type="submit" name="submit" class="btn" value="FTP Stop">                    <br><br><br>
+                                File Name : <input type="text" id="ftp_file" name="ftp_file" >
+                                <input type="submit"  class="btn" name="submit" value="Upload File by_FTP">
+
+                     </div></fieldset>
+                    </div>
+                </div>
+                <!-- #2 Menu -->
+                <div id="menu2"><br/><br/><br/>
+                    <div style="color: red;"><hr/>
+                    <h3 align="center">HTTP Setup</h3><hr/></div>
+                    <fieldset>
+                        <div align="center">
+                        <p name="status">HTTP start button is used to create HTTP server<br>
+                            Enter your file filename to upload on server.<br>
+                            <b>File URL example: http://192.168.56.1/ks.cfg</b><br>
+                            </p>
+
+                                <input type="submit" name="submit" class="btn" value="HTTP Start">                   <br>							<br><br>
+                                <!--<input type="submit" name="submit" class="btn" value="FTP Stop">        -->            <br><br><br>
+                                File Name : <input type="text" id="http_file" name="http_file" >
+                                <input type="submit"  class="btn" name="submit" value="Upload File by_HTTP">
+
+                     </div><br><br><br>
+                    </fieldset>
+                </div>
+                <!-- #3 Menu -->
+               <!-- <div id="menu3"><br/><br/><br/>
+                    <div style="color: red;"><hr/>
+                    <h3 align="center">NFS Setup</h3><hr/>
+                    <hr/></div>
+                    <fieldset>
+						<div align="center">
+                            <p name="status">NFS start button is used to create NFS server with folder /var/cfg_files<br>
+                            Enter your file filename to upload on server.<br>
+                            <b>File URL example: nfs:192.168.56.1:/var/cfg_files/ks.cfg</b><br>
+                            </p>
+
+                                <input type="submit" name="submit" class="btn" value="NFS Start">                   <br>							<br><br>
+                                <input type="submit" name="submit" class="btn" value="NFS Stop">                    <br><br><br>
+                                File Name : <input type="text" id="nfs_file" name="nfs_file" >
+                                <input type="submit"  class="btn" name="submit" value="Upload File by_NFS">
+                        </div>
+                    </fieldset>
+                    </div>   -->
+            </form>
+        </div>
+    </body>
+</html>
+
+
