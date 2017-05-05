@@ -27,6 +27,19 @@ $ source project_venv/bin/activate
 ```
 * Now Flask is installed in the virtual environment! Now Download this project.
 
+*Step2:* Run Application
+
+* Now run Flask application called fedora_kickstart_final.py, you can run it in your activated virtual environment (see above) like this.
+```
+(project_venv) $ python3 fedora_kickstart_final.py
+    Running on http://127.0.0.1:5000/
+```
+* When you finish your work, just deactivate the virtual environment.
+```
+(project_venv) $ deactivate
+```
+---
+
 1. Basic Configuration
 
 ![Image of Basic Configuration](https://github.com/Kickstart-Server-Configuration-Tool/Fedora-Kickstart-Project/blob/master/Component%20Images/1.Basic%20Configuration.png?raw=true "Basic Configuration")
