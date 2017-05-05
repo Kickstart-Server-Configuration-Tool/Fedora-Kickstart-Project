@@ -1,15 +1,31 @@
 # Fedora-Kickstart-Project
 Fedora Kickstart server configuration using python flask framework. 
 
+---
+
 #### Flask
 Flask is a micro web framework for Python, based on the Werkzeug toolkit and Jinja2 template engine. 
 
 *Step1:* Flask Installation
-At first open the Terminal. Second, create a new folder fedora_kickstart_flask open it.
+
+* At first open the Terminal. Second, create a new folder fedora_kickstart_flask open it.
 ```
 $ mkdir fedora_kickstart_flask
 $ cd fedora_kickstart_flask
 ```
+* Let’s create a virtual environment called project_venv which will contain Python and pip which you can use to install Flask.
+```
+$ pyvenv project_venv
+```
+* Now activate virtual environment.
+```
+$ source project_venv/bin/activate
+```
+* Running the virtual environment, you can install Flask.
+```
+(project_venv) $ pip install flask
+```
+* Now Flask is installed in the virtual environment! Now Download this project.
 
 1. Basic Configuration
 
