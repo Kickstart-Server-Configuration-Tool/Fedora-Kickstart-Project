@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head>
+
+	<title>Kickstart Server Configuration Tool</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/simple-sidebar.css" rel="stylesheet">
+	<script src="static/js/jquery.js"></script>
+	
+	<style>
+			#firsttitle{
+					color:#FFFFFF;
+			}
+			#maintitle{
+					padding: 10px;
+			}
+			#firstbutton{
+					    border-radius: 45px 0px 0px 45px;
+					    width: 150px;
+					    padding: 10px;
+					    top:15px;
+					    background-color: #3C3C3C;
+			}
+			#secondbutton{
+						width:	200px;
+						padding: 10px;
+					    top:15px;
+					    background-color: #3C3C3C;
+			}
+			#thirdbutton{
+						width:	200px;
+						padding: 10px;
+					    top:15px;
+					    background-color: #000000;
+  					    font-weight: bold;
+			}
+			#forthbutton{
+						width:	200px;
+						padding: 10px;
+					    top:15px;
+					    background-color: #3C3C3C;
+			}
+			#fifthbutton{
+				        border-radius: 0px 45px 45px 0px;	
+				        width: 150px;
+				        padding: 10px;
+				   		top: 15px;
+					    background-color: #3C3C3C;
+			}		
+
+			#sidebar-wrapper{
+						width:	260px;
+			}
+			#filebutton{
+						left:300px;
+			}
+
+	</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" id="firsttitle">Kickstart Configuration Tool</a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#">Basic Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Installtion Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Boot-Loader Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Partition Information</a>
+                </li>
+                <li>
+                    <a href="#">Network Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Authentication Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Firewall Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Display Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Package Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Pre-Installtion Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Post-Installtion Configuration</a>
+                </li>
+            </ul>
+    </div>
+	
+	<nav>
+		<div class="container" align="center">
+		  <div class="btn-group">	
+			<button id="firstbutton" type="button" class="btn btn-primary">Help</button>
+			<button id="secondbutton" type="button" class="btn btn-primary">Customise</button>
+			<button id="thirdbutton" type="button" class="btn btn-primary">Configuration</button>
+			<button id="forthbutton" type="button" class="btn btn-primary">Setup</button>
+			<button id="fifthbutton" type="button" class="btn btn-primary">Credits 	&#10026;</button>
+		  </div>
+		  
+		  <h3 id="maintitle" align="center">Please select your choice for configuration</h3>
+		</div>
+	</nav>
+	
+    <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+						<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><<</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+	
+	<form class="form-horizontal" action="/" method="POST">
+		<fieldset>
+			<div class="form-group">
+			  <label class="col-md-4 control-label" name="pass">Root Password</label>  
+			  <div class="col-md-5">
+			  <input id="pass" name="pass" type="text" placeholder="" class="form-control input-md" required="">  
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <label class="col-md-4 control-label" name="rpass">Conform Password</label>  
+			  <div class="col-md-5">
+			  <input id="rpass" name="rpass" type="text" placeholder="" class="form-control input-md" required="">
+			  </div>
+			</div>
+		
+			<div class="form-group">
+			  <label class="col-md-4 control-label"></label>
+			  <div class="col-md-4">
+				<input type="submit" class="btn btn-default" value="Save File"/>
+			  </div>
+			</div>
+		</fieldset>
+	</form>
+
+	
+</body>
+
+</html>
