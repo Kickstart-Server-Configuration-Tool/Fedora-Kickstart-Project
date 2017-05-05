@@ -39,6 +39,8 @@ $ source project_venv/bin/activate
 (project_venv) $ deactivate
 ```
 ---
+Use wiki to understand project
+---
 
 1. Basic Configuration
 
