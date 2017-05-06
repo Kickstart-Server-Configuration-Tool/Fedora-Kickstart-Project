@@ -1,0 +1,96 @@
+Q. What is Kickstart.
+ A software tool develop by RedHat for unattended installation.
+	Unattended installation is an installation of OS which don't require
+any user interaction during installatio. Also called as automated installation.
+
+Q. How kickstrat work.
+ Kickstart sever require a input file containing the system configuration details. The file called as configuration file having extention .cfg.
+
+Q. Syntax of cfg file.
+ The syntax of cfg file is as follows:
+  It divide into four section 
+   Section 1 > commands containg the system parameters.
+   Section 2 > package information
+   Section 3 > pre-Script
+   Section 4 > post-Script
+
+@ What is PXE.
+ PXE is an achronomy for pre-boot execution environment.
+ A dhcp server configure on a network which assign ip address to connected system in the network. And transfer the instalation media in a network using ftp, http or nfs. System in a network can boot via network for installation.
+
+@ Steps to configure PXE.
+Step 1: Host the installation media using ftp, http or nfs.   
+Step 2: Configure tftp hosting files for booting pxe.
+Step 3: Do pxe configuration setting.
+Step 4: Start tftp.
+Step 5: Setup DHCP in network.
+Step 6: Boot the client machine via network.
+
+Step 1:
+	dnf install vsftpd
+   vi /etc/vsftpd/vsftpd.conf
+		edit the file according to required option and enable passive port
+ for data transfer.
+
+   systemctl enable vsftpd
+   firewall-cmd --permanent --add-service=ftp
+   firewall-cmd --reload
+   systemctl restart vsftpd
+
+Step 2:
+	dnf install tftp-server
+	dnf install syslinux
+   mount -o loop fedora-server-dvd-x86_64-25-1.3.iso /mnt/
+   cp /mnt/isolinux/{initrd.img,vmlinuz} /var/lib/tftpboot/fedora-x86_64/
+   echo 'in.tftp:ALL' >> /etc/hosts.allow
+
+   cp /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot/fedora-x86_64/
+	
+	cp -r /mnt/* /var/ftp/pub/fedora-x86_64/
+   chmod -R 755 /var/ftp/pub/fedora-x86_64/*
+
+Step 3:
+	mkdir /var/lib/tftp/pxelinux.cfg
+   vi /var/lib/tftp/pxelinux.cfg/defaults
+   	edit the defaults file give pxe menu.
+
+Step 4:
+   systemctl start tftp
+	systemctl daemon-reload
+   systemctl enable tftp.socket
+   firewall-cmd --permanent --add-service=tftp
+   firewall-cmd --reload
+
+Step 5:
+   dnf install dhcpd
+	cp /usr/lib/systemd/system/dhcpd.service /etc/systemd/system
+	vi /etc/systemd/system/dhcpd.service
+   add the line
+		ExecStart=/usr/sbin/dhcpd -f -cf /etc/dhcp/dhcpd.conf -user dhcpd -group dhcpd --no-pid enp0s8
+ 
+	vi /etc/dhcp/dhcpd.conf
+   Insert the following content
+    	ddns-update-style none;
+		option domain-name "kulatav.pxe";
+		option domain-name-servers 192.168.56.1, 8.8.4.4;
+		default-lease-time 600;
+		max-lease-time 7200;
+		log-facility local7;
+		subnet 192.168.56.0 netmask 255.255.255.0 {
+			 pool {
+				  range 192.168.56.3 192.168.56.10;
+				  filename "pxelinux.0";
+				  next-server 192.168.56.2;
+				  option subnet-mask 255.255.255.0;
+				  option broadcast-address 192.168.56.255;
+				  option routers 192.168.56.1;
+			 }
+		}
+
+	systemctl --system daemon-reload
+   systemctl restart dhcpd.service
+	systemctl enable dhcpd
+
+
+Step 6:
+	boot the client system.
